@@ -60,8 +60,61 @@ document.querySelector('#reset').addEventListener('click', () => {
 
 
 
-
 //-------------DOB CALCULATOR--------------
+
+const dateInput = document.querySelector("#dob");
+const calculateBtn = document.querySelector("#calculate-age");
+const resultDob = document.querySelector("#result-dob");
+
+
+const currDate = new Date(); // this is user current date
+
+
+calculateBtn.addEventListener("click", () => {
+
+  // if date ios empty
+  if (dateInput.value === "") {
+    resultDob.innerHTML = "Please Enter Your DOB";
+    resultDob.style.color = "red";
+    return;
+  }
+
+
+  const birthDate = new Date(dateInput.value);   // user DOB
+
+  //if date is in future
+  if (birthDate > currDate) {
+    resultDob.innerHTML = "DOB cannot be in the future";
+    resultDob.style.color = "red";
+    return;
+  }
+
+
+  let years = currDate.getFullYear() - birthDate.getFullYear();
+  let months = currDate.getMonth() - birthDate.getMonth();
+  let days = currDate.getDate() - birthDate.getDate();
+
+
+  // handle negetive value eg today is 15 sep and user DOB is 20 sep so 15-20=-5
+  if (days < 0) {
+    months--;
+
+    const prevMonth = new Date(currDate.getFullYear(), currDate.getMonth(), 0);
+    days += prevMonth.getDate();
+
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  resultDob.innerHTML = `Your Age is ${years} Years, ${months} Months, and ${days} Days`;
+  resultDob.style.color = "#e7dd57"
+
+})
+
+
 
 
 
