@@ -1,0 +1,260 @@
+body {
+  background-color: #0c2a30;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100vh;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+nav {
+  height: 60px;
+  background-color: #061619;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.nav-item {
+  color: #b5d4ba;
+  font-size: 1rem;
+  font-weight: 900;
+
+  background-color: transparent;
+
+  padding: 0 15px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+/* Active page */
+.nav-item.active {
+  border-bottom: 3px solid #8bbb92;
+}
+
+.nav-item:hover {
+  color: #8bbb92;
+}
+
+/* ---------------- MAIN ---------------- */
+
+main {
+  min-height: calc(100vh - 60px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+/* ---------------- STOPWATCH ---------------- */
+
+.stopwatch-container {
+  text-align: center;
+
+  background: #092328;
+
+  padding: 50px;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+#display {
+  font-size: 7rem;
+  font-weight: 900;
+
+  margin-bottom: 28px;
+
+  color: #8bbb92;
+}
+
+/* ---------------- TIMER ---------------- */
+
+.timer-container {
+  text-align: center;
+
+  background: #092328;
+
+  padding: 50px;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 8px rgb(70, 69, 69);
+}
+
+#display-timer {
+  font-size: 7rem;
+  font-weight: 900;
+
+  margin-bottom: 28px;
+
+  color: #8bbb92;
+}
+
+/* ---------------- DOB CALCULATOR ---------------- */
+
+.dob-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: #092328;
+  gap: 10px;
+  padding: 50px;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 8px rgb(146, 148, 85);
+}
+
+/* ---------------- TITLES ---------------- */
+
+#title {
+  font-size: 2rem;
+  font-weight: 900;
+
+  margin-top: -30px;
+
+  color: #b5d4ba;
+}
+
+#title-timer {
+  font-size: 2rem;
+  font-weight: 900;
+
+  margin-top: -30px;
+
+  color: #b5d4ba;
+}
+
+#dob-title {
+  font-size: 2rem;
+  font-weight: 900;
+
+  margin-top: -30px;
+  margin-bottom: 55px;
+
+  color: #b5d4ba;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+button {
+  border: solid #618764 2px;
+  border-radius: 5px;
+
+  font-weight: bold;
+
+  padding: 10px 20px;
+  font-size: 1rem;
+
+  margin: 0 5px;
+
+  border: none;
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Stopwatch buttons */
+
+#start {
+  background-color: #57b75a;
+  color: white;
+}
+
+#stop {
+  background-color: #f44336;
+  color: white;
+}
+
+#reset {
+  background-color: #618764;
+  color: white;
+}
+
+#start-timer{
+    background-color: #57b75a;
+  color: white;
+}
+
+#stop-timer{
+  background-color: #f44336;
+  color: white;
+}
+#reset-timer {
+  background-color: #618764;
+  color: white;
+}
+
+#calculate-age {
+  background-color: #57b75a;
+  color: white;
+  margin-top: 40px;
+}
+
+/* ---------------- DOB INPUT ---------------- */
+
+#dob-enter {
+  font-size: 1rem;
+  font-weight: 900;
+
+  color: #b5d4ba;
+}
+
+#dob {
+  background-color: #618764;
+  color: rgb(234, 222, 127);
+
+  border: solid #618764 2px;
+  border-radius: 5px;
+
+  font-weight: bold;
+
+  padding: 10px 20px;
+  font-size: 1rem;
+
+  margin: 0 5px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+
+#result-dob {
+  font-size: 1.5rem;
+  font-weight: 900;
+
+  margin-top: 30px;
+  margin-bottom: -30px;
+
+  color: #b5d4ba;
+}
+
+/* ---------------- PAGE SWITCHING ---------------- */
+
+/* Timer and DOB are hidden initially */
+
+#timerpage,
+#dobpage {
+  display: none;
+}
