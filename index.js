@@ -31,13 +31,13 @@ function stopwatch() {
 document.querySelector("#start").addEventListener("click", () => {
   //if check previous any timer is active
   if (timer === null)
-    timer = setInterval(stopwatch, 1000);//1000
+    timer = setInterval(stopwatch, 1000);
   titleStatus.innerHTML = "Started";
 
 })
 
 document.querySelector('#stop').addEventListener('click', () => {
-  clearInterval(timer);
+  clearInterval(timer);   //method in JavaScript stops a repeating timer that was previously started using setInterval()
   timer = null;
   titleStatus.innerHTML = "Paused";
 })
@@ -55,8 +55,89 @@ document.querySelector('#reset').addEventListener('click', () => {
 
 //-------------TIMER--------------
 
+let timerhour = 0;
+let timerminute = 0;
+let timersecond = 0;
+
+let timerInterval = null;
+
+const hourInput = document.querySelector('#timer-hours');
+const minuteInput = document.querySelector('#timer-minutes');
+const secondInput = document.querySelector('#timer-seconds');
 
 
+function timerLogic() {
+
+  if (timerhour === 0 && timerminute === 0 && timersecond === 30)
+    document.querySelector('.timer-container').style.boxShadow = "0 4px 8px rgb(229, 208, 25)";
+  if (timerhour === 0 && timerminute === 0 && timersecond === 10)
+    document.querySelector('.timer-container').style.boxShadow = "0 4px 8px rgb(221, 47, 27)";
+
+  if (timerhour === 0 && timerminute === 0 && timersecond === 0) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    return;
+  }
+  if (timersecond > 0)
+    timersecond--;
+  else {
+    timersecond = 59;
+    if (timerminute > 0)  // this for prevent it from going -ve
+      timerminute--;
+    else {
+      timerminute = 59;
+      timerhour--;
+    }
+  }
+  updateTimerDisplay();
+}
+
+const timerDisplay = document.querySelector("#display-timer");
+const startTimer = document.querySelector("#start-timer");
+const stopTimer = document.querySelector("#stop-timer");
+const resetTimer = document.querySelector("#reset-timer");
+
+function updateTimerDisplay() {
+  let h = String(timerhour).padStart(2, "0");
+  let m = String(timerminute).padStart(2, "0");
+  let s = String(timersecond).padStart(2, "0");
+
+  timerDisplay.innerHTML = `${h}:${m}:${s}`;
+}
+
+startTimer.addEventListener('click', () => {
+  document.querySelector('#title-timer').innerHTML = "Started";
+  if (timerhour === 0 && timerminute === 0 && timersecond === 0) {
+    timerhour = Number(hourInput.value);  // convert string in to number
+    timerminute = Number(minuteInput.value);
+    timersecond = Number(secondInput.value);
+
+    updateTimerDisplay();
+  }
+  if (timerInterval === null) {
+    timerInterval = setInterval(timerLogic, 1000);
+  }
+
+});
+
+document.querySelector('#stop-timer').addEventListener('click', () => {
+  clearInterval(timerInterval);   //method in JavaScript stops a repeating timer that was previously started using setInterval()
+  timerInterval = null;
+  document.querySelector('#title-timer').innerHTML = "Paused";
+})
+
+document.querySelector('#reset-timer').addEventListener('click', () => {
+  clearInterval(timerInterval);
+  timerInterval = null;
+
+  timerhour = 0;
+  timerminute = 0;
+  timersecond = 0;
+
+  updateTimerDisplay();
+
+  document.querySelector('#title-timer').innerHTML = "Timer";
+})
 
 
 

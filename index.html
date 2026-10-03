@@ -15,7 +15,7 @@
 
     <a href="#" class="nav-item active" id="stopwatchNav">STOPWATCH</a>
     <a href="#" class="nav-item" id="timerNav">TIMER</a>
-    <a href="#" class="nav-item" id="dobNav">DOB CALCULATOR</a>
+    <a href="#" class="nav-item" id="dobNav">AGE CALCULATOR</a>
 
   </nav>
 
@@ -39,6 +39,11 @@
     <section id="timerpage" class="page">
       <div class="timer-container">
         <p id="title-timer">Timer</p>
+        <div class="timer-input">
+          <input type="number" id="timer-hours" min="00" max="99" value="" placeholder="HH">
+          <input type="number" id="timer-minutes" min="00" max="59" value="" placeholder="MM">
+          <input type="number" id="timer-seconds" min="00" max="59" value="" placeholder="SS">
+        </div>
         <div id="display-timer">00:00:00</div>
         <div id="controls-timer">
           <button id="start-timer">START</button>
@@ -52,7 +57,7 @@
     <!-- DOB PAGE-->
     <section id="dobpage" class="page">
       <div class="dob-container">
-        <p id="dob-title">DOB Calculator</p>
+        <p id="dob-title">Age Calculator</p>
         <label id="dob-enter" for="dob">Enter your Date of Birth</label>
         <input type="date" id="dob">
         <button id="calculate-age">CALCULATE</button>

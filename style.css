@@ -1,13 +1,13 @@
+/* ==================== WebTimeTools CSS ==================== */
+
 body {
   background-color: #0c2a30;
   padding: 0;
   margin: 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* ---------------- NAVBAR ---------------- */
@@ -26,23 +26,14 @@ nav {
   color: #b5d4ba;
   font-size: 1rem;
   font-weight: 900;
-
-  background-color: transparent;
-
   padding: 0 15px;
   height: 60px;
-
   display: flex;
   align-items: center;
-
   cursor: pointer;
   text-decoration: none;
-
-  border-bottom: 3px solid transparent;
-  box-sizing: border-box;
 }
 
-/* Active page */
 .nav-item.active {
   border-bottom: 3px solid #8bbb92;
 }
@@ -54,119 +45,76 @@ nav {
 /* ---------------- MAIN ---------------- */
 
 main {
-  min-height: calc(100vh - 60px);
-
+  min-height: calc(100vh - 60px);  
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
 }
 
-/* ---------------- STOPWATCH ---------------- */
+/* ---------------- COMMON CONTAINER ---------------- */
 
-.stopwatch-container {
-  text-align: center;
-
-  background: #092328;
-
-  padding: 50px;
-  border-radius: 10px;
-
-  box-shadow: 0 4px 8px rgb(0, 0, 0);
-}
-
-#display {
-  font-size: 7rem;
-  font-weight: 900;
-
-  margin-bottom: 28px;
-
-  color: #8bbb92;
-}
-
-/* ---------------- TIMER ---------------- */
-
-.timer-container {
-  text-align: center;
-
-  background: #092328;
-
-  padding: 50px;
-  border-radius: 10px;
-
-  box-shadow: 0 4px 8px rgb(70, 69, 69);
-}
-
-#display-timer {
-  font-size: 7rem;
-  font-weight: 900;
-
-  margin-bottom: 28px;
-
-  color: #8bbb92;
-}
-
-/* ---------------- DOB CALCULATOR ---------------- */
-
+.stopwatch-container,
+.timer-container,
 .dob-container {
   text-align: center;
-  display: flex;
-  flex-direction: column;
   background: #092328;
-  gap: 10px;
   padding: 50px;
   border-radius: 10px;
+}
 
+.stopwatch-container {
+  box-shadow: 0 4px 14px rgb(146, 148, 85);
+}
+
+.timer-container {
+  box-shadow: 0 4px 8px rgb(246, 246, 244);
+}
+
+.dob-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   box-shadow: 0 4px 8px rgb(146, 148, 85);
+}
+
+/* ---------------- DISPLAY ---------------- */
+
+#display,
+#display-timer {
+  font-size: 7rem;  
+  font-weight: 900;
+  margin-bottom: 28px;
+  color: #8bbb92;
 }
 
 /* ---------------- TITLES ---------------- */
 
-#title {
+#title,
+#title-timer,
+#dob-title {
   font-size: 2rem;
   font-weight: 900;
-
   margin-top: -30px;
-
-  color: #b5d4ba;
-}
-
-#title-timer {
-  font-size: 2rem;
-  font-weight: 900;
-
-  margin-top: -30px;
-
   color: #b5d4ba;
 }
 
 #dob-title {
-  font-size: 2rem;
-  font-weight: 900;
-
-  margin-top: -30px;
   margin-bottom: 55px;
-
-  color: #b5d4ba;
 }
 
 /* ---------------- BUTTONS ---------------- */
 
 button {
-  border: solid #618764 2px;
   border-radius: 5px;
-
   font-weight: bold;
-
   padding: 10px 20px;
   font-size: 1rem;
-
   margin: 0 5px;
-
   border: none;
   cursor: pointer;
-
   transition: background 0.2s;
 }
 
@@ -174,87 +122,210 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Stopwatch buttons */
+/* ---------------- BUTTON COLORS ---------------- */
 
-#start {
+#start,
+#start-timer,
+#calculate-age {
   background-color: #57b75a;
   color: white;
 }
 
-#stop {
+#stop,
+#stop-timer {
   background-color: #f44336;
   color: white;
 }
 
-#reset {
-  background-color: #618764;
-  color: white;
-}
-
-#start-timer{
-    background-color: #57b75a;
-  color: white;
-}
-
-#stop-timer{
-  background-color: #f44336;
-  color: white;
-}
+#reset,
 #reset-timer {
   background-color: #618764;
   color: white;
 }
 
 #calculate-age {
-  background-color: #57b75a;
-  color: white;
   margin-top: 40px;
 }
 
 /* ---------------- DOB INPUT ---------------- */
 
 #dob-enter {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 900;
-
   color: #b5d4ba;
 }
 
 #dob {
   background-color: #618764;
   color: rgb(234, 222, 127);
-
   border: solid #618764 2px;
   border-radius: 5px;
-
   font-weight: bold;
-
   padding: 10px 20px;
   font-size: 1rem;
-
   margin: 0 5px;
-
   cursor: pointer;
-
   transition: background 0.2s;
 }
 
+/* ---------------- DOB RESULT ---------------- */
 
 #result-dob {
   font-size: 1.5rem;
   font-weight: 900;
-
   margin-top: 30px;
   margin-bottom: -30px;
-
   color: #b5d4ba;
 }
 
 /* ---------------- PAGE SWITCHING ---------------- */
 
-/* Timer and DOB are hidden initially */
-
 #timerpage,
 #dobpage {
   display: none;
 }
+
+
+
+/* ==================== RESPONSIVE ==================== */
+
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+  nav {
+    gap: 25px;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+  }
+
+  #display,
+  #display-timer {
+    font-size: 5rem;
+  }
+
+}
+
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+  nav {
+    height: 60px;       /* keep same height */
+    gap: 10px;
+  }
+
+
+  .nav-item {
+    height: 60px;       /* keep same height */
+    font-size: 0.7rem;
+    padding: 0 8px;
+  }
+
+
+  #display,
+  #display-timer {
+    font-size: 3.5rem;  /* reduce timer size */
+  }
+
+
+  button {
+    width: 80%;
+    margin: 8px auto;
+  }
+
+
+  #controls,
+  #controls-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .stopwatch-container,
+  .timer-container,
+  .dob-container {
+    padding: 50px;      /* same padding */
+  }
+
+
+  #title,
+  #title-timer,
+  #dob-title {
+    font-size: 1.5rem;
+  }
+
+    #result-dob{
+    font-size: 1.2rem;
+  }
+
+
+  /* ============== TIMER HOUR SELECTION================ */
+
+}
+#timer-hours,
+#timer-minutes,
+#timer-seconds {
+  background-color: #618764;
+  color: rgb(239, 188, 4);
+  border: solid #618764 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#timer-hours::-webkit-inner-spin-button,
+#timer-minutes::-webkit-inner-spin-button,
+#timer-seconds::-webkit-inner-spin-button {
+  opacity: 0.8;
+}
+
+#timer-hours::placeholder,
+#timer-minutes::placeholder,
+#timer-seconds::placeholder {
+  color: #b5d4ba;
+  opacity: 0.8;
+  font-size: 1.5rem;
+}
+
+
+/* Small Mobile */
+
+@media (max-width: 350px) {
+
+
+  nav {
+    gap: 5px;
+  }
+
+
+  .nav-item {
+    font-size: 0.6rem;
+    padding: 0 5px;
+  }
+
+
+  #display,
+  #display-timer {
+    font-size: 2.8rem;
+  }
+
+  #result-dob{
+    font-size: 1rem;
+  }
+
+
+}
+
